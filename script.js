@@ -35,6 +35,9 @@ fetch("./data/weeksBreakdown.json")
     console.log("error: " + err);
   });
 
+let content = document.getElementById("myData");
+let bibleVerses = document.getElementById("bibleVerses");
+
 function weeksBreakdown() {
   var mainContainer = document.getElementById("myData");
   fetch("./data/weeksBreakdown.json")
@@ -43,42 +46,57 @@ function weeksBreakdown() {
       for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
         div.classList.add("weeksBox");
-        div.innerHTML = `<a href="${data[i].title}" id="link" value="${data[i].title}" onclick="getVerses(this)" <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button></a>`;
+        div.innerHTML = ` <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button>`;
+        // div.innerHTML = `<a href=#"${data[i].title}" id="link" value="${data[i].title}"  <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button></a>`;
         // console.log(div);
         mainContainer.appendChild(div);
       }
+      let links = document.getElementById("myData");
+      links.addEventListener("click", function topicChosen(e) {
+        console.log("clicked");
+        console.log(e);
+        console.log(e.target.outerText);
+        let clickedVerse = e.target.outerText;
+        fetch("./data/web.json")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            for (var i = 0; i < data.length; i++) {
+              if (
+                clickedVerse === data[i].title ||
+                clickedVerse === data[i].verses ||
+                (clickedVerse === data[i].title &&
+                  clickedVerse === data[i].verses)
+              ) {
+                console.log("good");
+                content.innerHTML = "";
+                content.innerHTML = `<div class="heading-verses"><a href="index.html"><button class="back_btn">&arrl</button></a><h1>${data[i].verses}</h1><button>7 Questions</button></div>`;
+
+                var div = document.createElement("div");
+                div.innerHTML = `
+                              
+                              <p> ${data[i].text}</p>
+
+                            `;
+                content.append(div);
+              }
+            }
+          })
+          .catch(function (err) {
+            console.log("error: " + err);
+          });
+
+        function getVerses(data) {
+          if (clickedVerse === data[i].title) {
+            console.log("good");
+          }
+        }
+      });
     });
 }
 
-let content = document.getElementById("myData");
-let bibleVerses = document.getElementById("bibleVerses");
-
-function getVerses() {
-  fetch("./data/web.json")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function getVerses(title) {
-      content.innerHTML = "";
-      content.innerHTML = `<a href="index.html"><button class="back_btn">&arrl</button></a>`;
-      let textHeading = title.getAttribute("href");
-      console.log(textHeading);
-      data = textHeading[0].title;
-      console.log(data);
-
-      bibleVerses.innerHTML = "";
-
-      bibleVerses.innerHTML = `
-        var div = document.createElement("div");
-      div.innerHTML =
-        "Verses: " + data.verses + " " + "<br />" + "Text: " + data.text;
-      
-      `;
-    })
-    .catch(function (err) {
-      console.log("error: " + err);
-    });
-}
+function getVerses() {}
 
 fetch("./data/kjv.json")
   .then(function (response) {
