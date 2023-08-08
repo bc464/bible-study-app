@@ -5,6 +5,8 @@
 }
 body {
   background-color: whitesmoke;
+  font-family: "Spartan", sans-serif;
+  /* font-size: 18px; */
 }
 
 img {
@@ -16,11 +18,11 @@ img {
 .container {
   width: 80%;
 
-  margin: 0 auto;
+  margin: 2% auto 0;
 
   /* text-align: center; */
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 h1 {
   text-align: center;
@@ -43,7 +45,7 @@ h1 {
   cursor: pointer;
 }
 .weeksBox:hover {
-  background-color: aqua;
+  background-color: lightblue;
 }
 button {
   border: none;
@@ -52,25 +54,73 @@ button {
   display: flex;
   column-gap: 20px;
 }
-#myArabic {
+/* #myArabic {
   width: 70%;
   margin: 0 auto;
   font-size: 24px;
-}
+} */
 .heading-verses {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
+.heading-verses a {
+  text-decoration: none;
+}
+.back-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  background-color: lightblue;
+  color: black;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.bibleLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  outline: 1px solid lightblue;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  background-color: lightblue;
+}
+
+.textBox {
+  width: 50%;
+  margin: 0 auto;
+  outline: 1px solid lightblue;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 24px;
+}
 @media only screen and (max-width: 1024px) {
   .container {
-    width: 90%;
+    width: 80%;
   }
-  /* .weeksBox {
-    max-width: 700px;
-  } */
+  .textBox {
+    width: 75%;
+  }
 }
 @media only screen and (max-width: 768px) {
+  .textBox {
+    width: 95%;
+  }
 }
 @media only screen and (max-width: 425px) {
   button {
@@ -78,8 +128,10 @@ button {
     align-items: center;
     row-gap: 10px;
   }
-  #myArabic {
-    width: 95%;
-    font-size: 18px;
+  .heading-verses h1 {
+    font-size: 20px;
+  }
+  .textBox {
+    font-size: 20px;
   }
 }

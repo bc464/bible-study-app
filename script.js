@@ -6,24 +6,6 @@ import arabic from "./data/arabic.json" assert { type: "json" };
 
 const weeksInfo = document.getElementById("weeksInfo");
 
-function showText(kjv) {}
-
-// function onStartup() {
-//   let tempDiv = document.createElement("div");
-
-//   let weekBox = "";
-//   weeks.forEach((elem) => {
-//     weekBox += `
-//   <div class="details>
-//     <span>${elem.week}</span><p>${elem.title}</p>
-//     </div>
-//   `;
-//     console.log(weekBox);
-//     // tempDiv.append(weekBox);
-//     weeksInfo.insertAdjacentHTML("afterbegin", weekBox);
-//   });
-// }
-
 fetch("./data/weeksBreakdown.json")
   .then(function (response) {
     return response.json();
@@ -47,56 +29,67 @@ function weeksBreakdown() {
         var div = document.createElement("div");
         div.classList.add("weeksBox");
         div.innerHTML = ` <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button>`;
-        // div.innerHTML = `<a href=#"${data[i].title}" id="link" value="${data[i].title}"  <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button></a>`;
-        // console.log(div);
         mainContainer.appendChild(div);
       }
-      let links = document.getElementById("myData");
-      links.addEventListener("click", function topicChosen(e) {
-        console.log("clicked");
-        console.log(e);
-        console.log(e.target.outerText);
-        let clickedVerse = e.target.outerText;
-        fetch("./data/web.json")
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            for (var i = 0; i < data.length; i++) {
-              if (
-                clickedVerse === data[i].title ||
-                clickedVerse === data[i].verses ||
-                (clickedVerse === data[i].title &&
-                  clickedVerse === data[i].verses)
-              ) {
-                console.log("good");
-                content.innerHTML = "";
-                content.innerHTML = `<div class="heading-verses"><a href="index.html"><button class="back_btn">&arrl</button></a><h1>${data[i].verses}</h1><button>7 Questions</button></div>`;
-
-                var div = document.createElement("div");
-                div.innerHTML = `
-                              
-                              <p> ${data[i].text}</p>
-
-                            `;
-                content.append(div);
-              }
-            }
-          })
-          .catch(function (err) {
-            console.log("error: " + err);
-          });
-
-        function getVerses(data) {
-          if (clickedVerse === data[i].title) {
-            console.log("good");
-          }
-        }
-      });
     });
 }
 
-function getVerses() {}
+let links = document.getElementById("myData");
+links.addEventListener("click", function topicChosen(e) {
+  let clickedVerse = e.target.outerText;
+  fetch("./data/web.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        if (clickedVerse === data[i].title || clickedVerse === data[i].verses) {
+          content.innerHTML = "";
+          content.innerHTML = `<div class="heading-verses"><a href="index.html"><button class="back-btn">&larr;</button></a><h1>${data[i].verses}</h1><button>7 Questions</button></div>
+                <div class="bibleLinks"> <button id="kjv" class="btn" >KJV</button>
+                 <button id="asv" class="btn" >ASV</button>
+                 <button id="web" class="btn" >WEB</button><button id="arabic" class="btn arabic" >ARABIC</button></div>`;
+
+          var div = document.createElement("div");
+          div.classList.add("bibleLinks");
+          div.innerHTML = ``;
+
+          var div = document.createElement("div");
+          div.classList.add("textBox");
+          div.innerHTML = `                          
+                              <p> ${data[i].text}</p>
+                            `;
+          content.append(div);
+
+          let buttons = document.getElementsByTagName("button");
+          let versionChosen = (e) => {
+            let bibleVersion = e.target.id;
+
+            fetch(`./data/${bibleVersion}.json`)
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                  if (
+                    clickedVerse === data[i].title ||
+                    clickedVerse === data[i].verses
+                  ) {
+                    div.innerHTML = `                          
+                              <p> ${data[i].text}</p>
+                            `;
+                    content.append(div);
+                  }
+                }
+              });
+          };
+          for (let button of buttons) {
+            button.addEventListener("click", versionChosen);
+          }
+        }
+      }
+    });
+});
 
 fetch("./data/kjv.json")
   .then(function (response) {
