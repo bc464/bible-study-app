@@ -3,18 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
       rel="stylesheet"
     />
-
-    <title>Bible-Study-App</title>
-
+    <title>28 Week Bible Study</title>
     <link rel="stylesheet" href="style.css" />
-
     <script defer type="module" src="script.js"></script>
   </head>
   <body>
@@ -23,9 +19,52 @@
         <h1>28 Week Bible Study</h1>
         <div id="myData"></div>
       </div>
-
+      <!-- MODAL -->
       <footer class="footer">
-        <p>Copyright</p>
+        <a href=""
+          ><img src="./images/googleplay.png" alt="google play badge"
+        /></a>
+        <button class="btn-open-modal" data-open-modal>i</button>
+        <dialog data-modal class="modal">
+          <div class="modal-heading">
+            <h3>Copyright</h3>
+            <button class="btn-modal" data-close-modal>X</button>
+          </div>
+          <p>
+            The content provided in this app was obtained from the
+            <a hr href="https://e-sword.net" target="_blank">
+              E-Sword:Free Bible Study for the PC</a
+            >.
+          </p>
+          <div class="modal-content">
+            <h4>King James Version</h4>
+            <p>
+              This is the 1769 King James Version of the Holy Bible (also known
+              as the Authorized Version).<br />
+              Published in 1769; public domain.
+            </p>
+          </div>
+          <div class="modal-content">
+            <h4>American Standard Version</h4>
+            <p>Published in 1901; public domain.</p>
+          </div>
+          <div class="modal-content">
+            <h4>World English Bible</h4>
+            <p>
+              The World English Bible (WEB) is a Public Domain (no copyright)
+              Modern English translation of the Holy Bible. That means that you
+              may freely copy it in any form, including electronic and print
+              formats. The World English Bible is based on the American Standard
+              Version of the Holy Bible first published in 1901, the Biblia
+              Hebraica Stutgartensa Old Testament, and the Greek Majority Text
+              New Testament.
+            </p>
+          </div>
+          <div class="modal-content">
+            <h4>Arabic Smith and Van Dyke Bible</h4>
+            <p>Published in 1865; public domain.</p>
+          </div>
+        </dialog>
       </footer>
     </div>
   </body>

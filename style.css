@@ -54,15 +54,16 @@ button {
   display: flex;
   column-gap: 20px;
 }
-/* #myArabic {
-  width: 70%;
-  margin: 0 auto;
-  font-size: 24px;
-} */
+/* ***TEXT BOX CONTENT*** */
+.title-verses {
+  text-align: center;
+}
 .heading-verses {
+  max-width: 600px;
+  margin: 5px auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .heading-verses a {
   text-decoration: none;
@@ -79,6 +80,17 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.btn-questions {
+  padding: 10px;
+  background-color: lightblue;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn-questions:hover {
+  background-color: #fff;
+  outline: 1px solid lightblue;
 }
 .bibleLinks {
   display: flex;
@@ -109,6 +121,64 @@ button {
   border-radius: 8px;
   font-size: 24px;
 }
+/* ***FOOTER CONTENT*** */
+
+/***** MODAL ******/
+dailog::backdrop {
+  background-color: lightblue;
+}
+
+.modal {
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: #fff;
+  border-radius: 8px;
+  border-radius: 0.25rem;
+  z-index: 10;
+}
+.modal-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.btn-open-modal {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightblue;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-style: italic;
+  cursor: pointer;
+}
+.btn-open-modal:hover {
+  background-color: #fff;
+  outline: 1px solid lightblue;
+}
+.btn-modal {
+  font-size: 25px;
+  font-weight: 700;
+}
+/* ***FOOTER *** */
+.footer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  outline: 1px solid lightblue;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: 1024px) {
   .container {
     width: 80%;
@@ -120,6 +190,9 @@ button {
 @media only screen and (max-width: 768px) {
   .textBox {
     width: 95%;
+  }
+  .modal {
+    width: 60%;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -133,5 +206,15 @@ button {
   }
   .textBox {
     font-size: 20px;
+  }
+  .footer {
+    justify-content: center;
+    outline: none;
+  }
+  .footer img {
+    display: none;
+  }
+  .modal {
+    width: 80%;
   }
 }
