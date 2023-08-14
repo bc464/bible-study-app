@@ -6,40 +6,36 @@
 body {
   background-color: whitesmoke;
   font-family: "Spartan", sans-serif;
-  /* font-size: 18px; */
 }
-
 img {
   width: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
-
+/* ****CONTAINER **** */
 .container {
   width: 80%;
-
   margin: 2% auto 0;
-
-  /* text-align: center; */
-  /* display: flex;
-  justify-content: center; */
 }
 h1 {
   text-align: center;
   margin-bottom: 30px;
 }
+/* ***CONTAINER-CONTENT**** */
 .container-content {
-  /* position: absolute;
-  top: 0; */
   display: flex;
   flex-direction: column;
 }
+/* ***WEEKSBOX**** */
 .weeksBox {
   max-width: 600px;
   margin: 10px auto;
   border: 1px solid lightblue;
   padding: 10px 5px 10px 5px;
+
   display: flex;
+  justify-content: start;
+  column-gap: 20px;
   row-gap: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -72,10 +68,10 @@ button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-
   background-color: lightblue;
   color: black;
   font-weight: bolder;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +108,7 @@ button {
   color: #fff;
   background-color: lightblue;
 }
-
+/* ***TEXTBOX**** */
 .textBox {
   width: 50%;
   margin: 0 auto;
@@ -127,7 +123,6 @@ button {
 dailog::backdrop {
   background-color: lightblue;
 }
-
 .modal {
   width: 40%;
   margin: 0 auto;
@@ -178,7 +173,7 @@ dailog::backdrop {
   align-items: center;
   justify-content: space-between;
 }
-
+/* ***MEDIA QUERIES**** */
 @media only screen and (max-width: 1024px) {
   .container {
     width: 80%;
@@ -196,6 +191,9 @@ dailog::backdrop {
   }
 }
 @media only screen and (max-width: 425px) {
+  .weeksBox {
+    flex-direction: column;
+  }
   button {
     flex-direction: column;
     align-items: center;

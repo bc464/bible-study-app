@@ -1,9 +1,6 @@
-import weeks from "./data/weeksBreakdown.json" assert { type: "json" };
-import kjv from "./data/kjv.json" assert { type: "json" };
-import asv from "./data/asv.json" assert { type: "json" };
-import web from "./data/web.json" assert { type: "json" };
-import arabic from "./data/arabic.json" assert { type: "json" };
+let content = document.getElementById("myData");
 
+// fetching json-weeksbreakdown
 fetch("./data/weeksBreakdown.json")
   .then(function (response) {
     return response.json();
@@ -14,9 +11,7 @@ fetch("./data/weeksBreakdown.json")
   .catch(function (err) {
     console.log("error: " + err);
   });
-
-let content = document.getElementById("myData");
-
+// Function to display json-weeksbreakdown
 function weeksBreakdown() {
   var mainContainer = document.getElementById("myData");
   fetch("./data/weeksBreakdown.json")
@@ -25,12 +20,12 @@ function weeksBreakdown() {
       for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
         div.classList.add("weeksBox");
-        div.innerHTML = ` <button><p>${data[i].title}</p> <span>${data[i].verses}</span></button>`;
+        div.innerHTML = `<p>${data[i].week}</p> <p>${data[i].title}</p> <span>${data[i].verses}</span>`;
         mainContainer.appendChild(div);
       }
     });
 }
-
+// function when user clicks on a specific week
 let links = document.getElementById("myData");
 links.addEventListener("click", function topicChosen(e) {
   let clickedVerse = e.target.outerText;
@@ -64,7 +59,8 @@ links.addEventListener("click", function topicChosen(e) {
                               <p> ${data[i].text}</p>
                             `;
           content.append(div);
-          // Getting the 7 Questions and to display it as a modal
+          window.scrollTo(0, 0);
+          // Getting the 7 Questions and to display it in textbox
           let sevenQuestions = document.getElementsByClassName("btn-questions");
 
           let getQuestions = () => {
@@ -116,84 +112,7 @@ links.addEventListener("click", function topicChosen(e) {
     });
 });
 
-fetch("./data/kjv.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    appendKjv(data);
-  })
-  .catch(function (err) {
-    console.log("error: " + err);
-  });
-function appendKjv(data) {
-  var mainContainer = document.getElementById("myArabic");
-  for (var i = 0; i < data.length; i++) {
-    var div = document.createElement("div");
-    div.innerHTML =
-      "Verses: " + data[i].verses + " " + "<br />" + "Text: " + data[i].text;
-    mainContainer.appendChild(div);
-  }
-}
-fetch("./data/asv.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    appendAsv(data);
-  })
-  .catch(function (err) {
-    console.log("error: " + err);
-  });
-function appendAsv(data) {
-  var mainContainer = document.getElementById("myArabic");
-  for (var i = 0; i < data.length; i++) {
-    var div = document.createElement("div");
-    div.innerHTML =
-      "Verses: " + data[i].verses + " " + "<br />" + "Text: " + data[i].text;
-    mainContainer.appendChild(div);
-  }
-}
-fetch("./data/web.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    appendWeb(data);
-  })
-  .catch(function (err) {
-    console.log("error: " + err);
-  });
-function appendWeb(data) {
-  var mainContainer = document.getElementById("myArabic");
-  for (var i = 0; i < data.length; i++) {
-    var div = document.createElement("div");
-    div.innerHTML =
-      "Verses: " + data[i].verses + " " + "<br />" + "Text: " + data[i].text;
-    mainContainer.appendChild(div);
-  }
-}
-
-fetch("./data/arabic.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    appendArabic(data);
-  })
-  .catch(function (err) {
-    console.log("error: " + err);
-  });
-function appendArabic(data) {
-  var mainContainer = document.getElementById("myArabic");
-  for (var i = 0; i < data.length; i++) {
-    var div = document.createElement("div");
-    div.innerHTML =
-      "Verses: " + data[i].verses + " " + "<br />" + "Text: " + data[i].text;
-    mainContainer.appendChild(div);
-  }
-}
-//  MODAL SCRIPT
+// MODAL SCRIPT
 
 const openButton = document.querySelector("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
