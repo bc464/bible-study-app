@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 body {
-  background-color: whitesmoke;
+  background-color: lightgrey;
   font-family: "Spartan", sans-serif;
+  color: black;
 }
 img {
   width: 100%;
@@ -30,7 +31,7 @@ h1 {
 .weeksBox {
   max-width: 600px;
   margin: 10px auto;
-  border: 1px solid lightblue;
+  border: 1px solid rgb(22, 50, 207);
   padding: 10px 5px 10px 5px;
 
   display: flex;
@@ -87,6 +88,7 @@ button {
 .btn-questions:hover {
   background-color: #fff;
   outline: 1px solid lightblue;
+  color: black;
 }
 .bibleLinks {
   display: flex;
@@ -99,7 +101,7 @@ button {
   padding: 5px;
   display: flex;
   align-items: center;
-  outline: 1px solid lightblue;
+  outline: 1px solid rgb(22, 50, 207);
   cursor: pointer;
   border-radius: 5px;
 }
@@ -112,7 +114,7 @@ button {
 .textBox {
   width: 50%;
   margin: 0 auto;
-  outline: 1px solid lightblue;
+  outline: 1px solid rgb(22, 50, 207);
   padding: 10px;
   border-radius: 8px;
   font-size: 24px;
@@ -130,7 +132,8 @@ dailog::backdrop {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  background: #fff;
+  background: lightgray;
+  color: black;
   border-radius: 8px;
   border-radius: 0.25rem;
   z-index: 10;
@@ -156,7 +159,7 @@ dailog::backdrop {
 }
 .btn-open-modal:hover {
   background-color: #fff;
-  outline: 1px solid lightblue;
+  outline: 1px solid rgb(22, 50, 207);
 }
 .btn-modal {
   font-size: 25px;
@@ -167,7 +170,7 @@ dailog::backdrop {
   max-width: 600px;
   margin: 20px auto;
   padding: 10px;
-  outline: 1px solid lightblue;
+  outline: 1px solid rgb(22, 50, 207);
   border-radius: 8px;
   display: flex;
   align-items: center;
