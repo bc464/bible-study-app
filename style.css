@@ -95,6 +95,7 @@ button {
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+
   margin-bottom: 20px;
 }
 .btn {
@@ -110,6 +111,15 @@ button {
   color: #fff;
   background-color: lightblue;
 }
+/* ***AUDIO DETAILS */
+.audioBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  margin-bottom: 20px;
+}
+
 /* ***TEXTBOX**** */
 .textBox {
   width: 50%;

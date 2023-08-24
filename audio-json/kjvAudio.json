@@ -1,0 +1,114 @@
+[
+  {
+    "week": 1,
+    "audio": "audio/GEN01.mp3"
+  },
+  {
+    "week": 2,
+    "audio": "audio/GEN02.mp3"
+  },
+  {
+    "week": 3,
+    "audio": "audio/GEN03_1-13.mp3"
+  },
+  {
+    "week": 4,
+    "audio": "audio/GEN03_14-24.mp3"
+  },
+  {
+    "week": 5,
+    "audio": "audio/GEN06_5-8.mp3"
+  },
+  {
+    "week": 6,
+    "audio": "audio/GEN06_9_08-14.mp3"
+  },
+  {
+    "week": 7,
+    "audio": "audio/GEN08_15-09_17.mp3"
+  },
+  {
+    "week": 8,
+    "audio": "audio/GEN12_15_17.mp3"
+  },
+  {
+    "week": 9,
+    "audio": "audio/GEN22.mp3"
+  },
+  {
+    "week": 10,
+    "audio": "audio/EXO12.mp3"
+  },
+  {
+    "week": 11,
+    "audio": "audio/EXO20.mp3"
+  },
+  {
+    "week": 12,
+    "audio": "audio/LEV04.mp3"
+  },
+  {
+    "week": 13,
+    "audio": "audio/ISA53.mp3"
+  },
+  {
+    "week": 14,
+    "audio": "audio/LUK01_02.mp3"
+  },
+  {
+    "week": 15,
+    "audio": "audio/MAT3_JHN1.mp3"
+  },
+  {
+    "week": 16,
+    "audio": "audio/MAT04.mp3"
+  },
+  {
+    "week": 17,
+    "audio": "audio/JHN03.mp3"
+  },
+  {
+    "week": 18,
+    "audio": "audio/JHN4_1-42.mp3"
+  },
+  {
+    "week": 19,
+    "audio": "audio/LUK05.mp3"
+  },
+  {
+    "week": 20,
+    "audio": "audio/MRK04.mp3"
+  },
+  {
+    "week": 21,
+    "audio": "audio/MRK05.mp3"
+  },
+  {
+    "week": 22,
+    "audio": "audio/JHN11.mp3"
+  },
+  {
+    "week": 23,
+    "audio": "audio/MAT26.mp3"
+  },
+  {
+    "week": 24,
+    "audio": "audio/JHN18_19.mp3"
+  },
+  {
+    "week": 25,
+    "audio": "audio/LUK23.mp3"
+  },
+  {
+    "week": 26,
+    "audio": "audio/LUK24_1-35.mp3"
+  },
+  {
+    "week": 27,
+    "audio": "audio/LUK24_36-56.mp3"
+  },
+  {
+    "week": 28,
+    "audio": "audio/JHN03.mp3"
+  }
+]

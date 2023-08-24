@@ -34,10 +34,17 @@ links.addEventListener("click", function topicChosen(e) {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         if (clickedVerse === data[i].title || clickedVerse === data[i].verses) {
-          content.innerHTML = "";
-          content.innerHTML = `
+          fetch("./audio-json/kjvAudio.json")
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (audioData) {
+              for (let y = 0; y < audioData.length; y++) {
+                if (audioData[y].week === data[i].week) {
+                  content.innerHTML = "";
+                  content.innerHTML = `
           <div class="title-verses">
           <h2>${data[i].verses}</h2>
           </div>
@@ -47,24 +54,33 @@ links.addEventListener("click", function topicChosen(e) {
           </div>
                 <div class="bibleLinks"> <button id="kjv" class="btn" >KJV</button>
                  <button id="asv" class="btn" >ASV</button>
-                 <button id="web" class="btn" >WEB</button><button id="arabic" class="btn arabic" >ARABIC</button></div>`;
+                 <button id="web" class="btn" >WEB</button><button id="arabic" class="btn arabic" >ARABIC</button>
+                 </div>
+                 <div class="audioBox">
+                 <p id="kjv-audio" class="audio-btn">KJV-Audio</p>
+                  <audio controls>
+              <source src=${audioData[i].audio} type="audio/mpeg">
 
-          var div = document.createElement("div");
-          div.classList.add("bibleLinks");
-          div.innerHTML = ``;
+              </audio>
+              </div>`;
 
-          var div = document.createElement("div");
-          div.classList.add("textBox");
-          div.innerHTML = `                          
+                  var div = document.createElement("div");
+                  div.classList.add("bibleLinks");
+                  div.innerHTML = ``;
+
+                  var div = document.createElement("div");
+                  div.classList.add("textBox");
+                  div.innerHTML = `                          
                               <p> ${data[i].text}</p>
                             `;
-          content.append(div);
-          window.scrollTo(0, 0);
-          // Getting the 7 Questions and to display it in textbox
-          let sevenQuestions = document.getElementsByClassName("btn-questions");
+                  content.append(div);
+                  window.scrollTo(0, 0);
+                  // Getting the 7 Questions and to display it in textbox
+                  let sevenQuestions =
+                    document.getElementsByClassName("btn-questions");
 
-          let getQuestions = () => {
-            div.innerHTML = `
+                  let getQuestions = () => {
+                    div.innerHTML = `
             
               <p>1. Did you ask someone about their struggle or challenge?</p>
               <p>2. What are we thankful for?</p>
@@ -77,36 +93,39 @@ links.addEventListener("click", function topicChosen(e) {
               <p>7. Who can you ask about their struggle or challenge?</p>
             `;
 
-            content.append(div);
-          };
-          sevenQuestions[0].addEventListener("click", getQuestions);
+                    content.append(div);
+                  };
+                  sevenQuestions[0].addEventListener("click", getQuestions);
 
-          // Getting the chosen bible Version and to display it
-          let buttons = document.getElementsByClassName("btn");
-          let versionChosen = (e) => {
-            let bibleVersion = e.target.id;
+                  // Getting the chosen bible Version and to display it
+                  let buttons = document.getElementsByClassName("btn");
+                  let versionChosen = (e) => {
+                    let bibleVersion = e.target.id;
 
-            fetch(`./data/${bibleVersion}.json`)
-              .then(function (response) {
-                return response.json();
-              })
-              .then(function (data) {
-                for (var i = 0; i < data.length; i++) {
-                  if (
-                    clickedVerse === data[i].title ||
-                    clickedVerse === data[i].verses
-                  ) {
-                    div.innerHTML = `                          
+                    fetch(`./data/${bibleVersion}.json`)
+                      .then(function (response) {
+                        return response.json();
+                      })
+                      .then(function (data) {
+                        for (let i = 0; i < data.length; i++) {
+                          if (
+                            clickedVerse === data[i].title ||
+                            clickedVerse === data[i].verses
+                          ) {
+                            div.innerHTML = `                          
                               <p> ${data[i].text}</p>
                             `;
-                    content.append(div);
+                            content.append(div);
+                          }
+                        }
+                      });
+                  };
+                  for (let button of buttons) {
+                    button.addEventListener("click", versionChosen);
                   }
                 }
-              });
-          };
-          for (let button of buttons) {
-            button.addEventListener("click", versionChosen);
-          }
+              }
+            });
         }
       }
     });
