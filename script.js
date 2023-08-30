@@ -53,11 +53,12 @@ links.addEventListener("click", function topicChosen(e) {
           <button class="btn-questions">7 Questions</button>
           </div>
                 <div class="bibleLinks">
-                 <button id="kjv" class="btn" >KJV</button>
-                 <button id="asv" class="btn" >ASV</button>
-                 <button id="web" class="btn" >WEB</button>
-                 <button id="lbla" class="btn">LBLA</button>
-                 <button id="arabic" class="btn arabic" >ARABIC</button>
+                 <button id="kjv" title="King James Version" class="btn" >KJV</button>
+                 <button id="asv" title="American Standard Version" class="btn" >ASV</button>
+                 <button id="web" title="World English Bible" class="btn" >WEB</button>
+                  <button id="nasb" title="New American Standard Bible" class="btn">NASB</button>
+                 <button id="lbla" title="La Biblia de las Americas" class="btn">LBLA</button>
+                 <button id="arabic" title="Arabic Smith and Van Dyke Bible" class="btn arabic" >ARABIC</button>
                  </div>
                  <div class="audioBox">
                  <p id="kjv-audio" class="audio-btn">KJV-Audio</p>

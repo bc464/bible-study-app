@@ -95,8 +95,9 @@ button {
   align-items: center;
   justify-content: center;
   column-gap: 10px;
-
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  margin: 20px 10%;
 }
 .btn {
   padding: 5px;
@@ -105,6 +106,7 @@ button {
   outline: 1px solid rgb(22, 50, 207);
   cursor: pointer;
   border-radius: 5px;
+  border: none;
 }
 .btn:hover,
 .btn:focus {
@@ -202,6 +204,13 @@ dailog::backdrop {
   .modal {
     width: 60%;
   }
+  .footer {
+    justify-content: center;
+    outline: none;
+  }
+  .footer img {
+    display: none;
+  }
 }
 @media only screen and (max-width: 425px) {
   .weeksBox {
@@ -218,14 +227,11 @@ dailog::backdrop {
   .textBox {
     font-size: 20px;
   }
-  .footer {
-    justify-content: center;
-    outline: none;
-  }
-  .footer img {
-    display: none;
-  }
+
   .modal {
     width: 80%;
+  }
+  .kjv-audio-link {
+    font-size: 10px;
   }
 }
