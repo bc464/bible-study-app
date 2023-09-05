@@ -204,13 +204,6 @@ dailog::backdrop {
   .modal {
     width: 60%;
   }
-  .footer {
-    justify-content: center;
-    outline: none;
-  }
-  .footer img {
-    display: none;
-  }
 }
 @media only screen and (max-width: 425px) {
   .weeksBox {
